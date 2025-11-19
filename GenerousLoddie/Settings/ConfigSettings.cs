@@ -19,14 +19,15 @@ namespace GenerousLoddie.Settings
             // Bind set methods to Config
             LocalisedString name = new LocalisedString($"Mods.{GenerousLoddie.Id}", "NAME");
             LocalisedString description = new LocalisedString($"Mods.{GenerousLoddie.Id}", "DESC");
+            float defaultValue = 2f;
             if (name.Exists &&
                 description.Exists)
             {
-                loddieMultiplier = config.Bind<float>("Modifier", name, 1f, description);
+                loddieMultiplier = config.Bind<float>("Modifier", name, defaultValue, description);
             }
             else
             {
-                loddieMultiplier = config.Bind("Modifier", "Multiplier", 1f, "How much to multiply Loddie's reward by");
+                loddieMultiplier = config.Bind("Modifier", "Multiplier", defaultValue, "How much to multiply Loddie's reward by");
             }
         }
     }
